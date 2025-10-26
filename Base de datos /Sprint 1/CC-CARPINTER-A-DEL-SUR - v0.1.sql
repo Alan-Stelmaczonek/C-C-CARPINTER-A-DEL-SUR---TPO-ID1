@@ -52,11 +52,11 @@ CREATE TABLE Factura (
     CONSTRAINT fk_factura_pedido
         FOREIGN KEY (id_pedido) REFERENCES Pedido(id_pedido),
 
-    -- Tipo v·lido
+    -- Tipo v√°lido
     CONSTRAINT ck_factura_tipo 
         CHECK (tipo IN ('A','B','C')),
 
-    -- RelaciÛn 1:1 (cada pedido tiene una sola factura)
+    -- Relaci√≥n 1:1 (cada pedido tiene una sola factura)
     CONSTRAINT uq_factura_pedido UNIQUE (id_pedido),
 
     -- Evita duplicar misma factura fiscal
@@ -160,7 +160,7 @@ CREATE TABLE OrdenCompra (
 --------------------------------------------------------
 
 -- TABLA DETALLEPEDIDO
--- Relaciona Pedido <-> Producto (Ìtems vendidos)
+-- Relaciona Pedido <-> Producto (√≠tems vendidos)
 
 CREATE TABLE DetallePedido (
     id_detalle_pedido INT IDENTITY(1,1) PRIMARY KEY,
@@ -180,7 +180,7 @@ CREATE TABLE DetallePedido (
 
 
 -- TABLA DETALLEFABRICACION
--- Relaciona Producto <-> Material (receta de fabricaciÛn)
+-- Relaciona Producto <-> Material (receta de fabricaci√≥n)
 
 CREATE TABLE DetalleFabricacion (
     id_detalle_fab INT IDENTITY(1,1) PRIMARY KEY,
@@ -198,7 +198,7 @@ CREATE TABLE DetalleFabricacion (
 
 
 -- TABLA DETALLECOMPRA
--- Relaciona OrdenCompra <-> Material (Ìtems comprados al proveedor)
+-- Relaciona OrdenCompra <-> Material (√≠tems comprados al proveedor)
 
 CREATE TABLE DetalleCompra (
     id_detalle_compra INT IDENTITY(1,1) PRIMARY KEY,
@@ -213,4 +213,5 @@ CREATE TABLE DetalleCompra (
 
     CONSTRAINT fk_detallecompra_material
         FOREIGN KEY (id_material) REFERENCES Material(id_material)
+
 );
